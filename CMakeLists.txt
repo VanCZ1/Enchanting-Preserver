@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 set(NAME "EnchantingPreserver")
 set(VERSION 2.0.0)
-set(LICENSE "MIT License")
-set(AUTHOR "VanCZ1")
+set(LICENSE "GPL-3.0 License")
 
 # -------------------------------------------------- #
 #                      Settings                      #
@@ -104,8 +103,8 @@ target_link_libraries(
 # -------------------------------------------------- #
 #                     Post build                     #
 # -------------------------------------------------- #
-if (COPY_BUILD AND DEFINED ENV{SKYRIM_PATH})
-	set(DLL_FOLDER $ENV{SKYRIM_PATH}/Data/SKSE/Plugins)
+if (COPY_BUILD AND DEFINED ENV{SKYRIM_MODS_PATH})
+	set(DLL_FOLDER $ENV{SKYRIM_MODS_PATH}/Data/SKSE/Plugins)
 	
 	add_custom_command(
 		TARGET ${PROJECT_NAME}
