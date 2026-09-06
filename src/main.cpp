@@ -32,7 +32,7 @@ namespace
 SKSEPluginInfo(
 	.Version = REL::Version{ Version::MAJOR, Version::MINOR, Version::PATCH },
 	.Name = Version::PROJECT,
-	.Author = Version::AUTHOR,
+	.Author = "VanCZ1"sv,
 	.SupportEmail = ""sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
 	.RuntimeCompatibility = SKSE::VersionIndependence::AddressLibrary
@@ -43,12 +43,12 @@ SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
 	SKSE::Init(a_skse);
 
 	SetupLog();
-	auto plugin = SKSE::PluginDeclaration::GetSingleton();
+	const auto plugin = SKSE::PluginDeclaration::GetSingleton();
 	logger::info("{} v{}", plugin->GetName(), plugin->GetVersion());
-	auto gameVersion = a_skse->RuntimeVersion().string();
+	const auto gameVersion = a_skse->RuntimeVersion().string();
 	logger::info("Game version: {}", gameVersion);
 
-	auto messaging = SKSE::GetMessagingInterface();
+	const auto messaging = SKSE::GetMessagingInterface();
 	if (!messaging->RegisterListener("SKSE", MessageHandler)) {
 		return false;
 	}
