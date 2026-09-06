@@ -4,23 +4,10 @@ namespace Hooks
 {
 	void Install();
 
-	// YesImSure skipped this function
-	/*class DisenchantCallbackHook
-	{
-	public:
-		static void InstallHook();
-		static inline bool isDisenchantCallback{ false };
-
-	private:
-		static void Thunk(RE::CraftingSubMenus::EnchantConstructMenu::EnchantMenuDisenchantCallback* a_this, RE::IMessageBoxCallback::Message a_msg);
-		
-		static inline REL::Relocation<decltype(Thunk)> originalFunction;
-	};*/
-
 	class DisenchantHook
 	{
 	public:
-		static void InstallHook();
+		static void Install();
 		static inline bool isDisenchanting{ false };
 
 	private:
@@ -32,7 +19,7 @@ namespace Hooks
 	class RemoveItemHook
 	{
 	public:
-		static void InstallHook();
+		static void Install();
 
 	private:
 		static RE::ObjectRefHandle Thunk(RE::PlayerCharacter* a_this,
